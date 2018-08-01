@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 设置为UserDao接口方法提供sql语句配置 -->
+<mapper namespace="com.simple.dao.UserDao">
+    <resultMap type="com.simple.pojo.UserInfo" id="userInfo">
+        <id property="id" column="ID"/>
+        <id property="name" column="USER_NAME"/>
+        <id property="password" column="PASS_WORD"/>
+        <id property="addTime" column="ADD_TIME"/>
+    </resultMap>
+    <select id="selectUser" resultMap="userInfo" parameterType="java.lang.String">
+        SELECT * FROM user WHERE ID = #{id}
+    </select>
+
+</mapper>
